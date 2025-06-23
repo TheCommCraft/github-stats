@@ -500,7 +500,7 @@ Languages:
                     additions += week.get("a", 0)
                     deletions += week.get("d", 0)
                     current_changes += week.get("d", 0) + week.get("a", 0)
-            print(current_changes)
+            print(f"{repo}: {current_changes}")
 
         self._lines_changed = (additions, deletions)
         return self._lines_changed
