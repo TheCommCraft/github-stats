@@ -497,10 +497,12 @@ Languages:
                     continue
 
                 for week in author_obj.get("weeks", []):
+                    changes_this_week = week.get("a", 0) + week.get("d", 0)
                     additions += week.get("a", 0)
                     deletions += week.get("d", 0)
                     current_changes += week.get("d", 0) + week.get("a", 0)
-                    print(f"{week.get('a', 0) + week.get('d', 0)} lines changed in week {week}")
+                    if changes_this_week:
+                        print(f"{changes_this_week} lines changed in week {week}")
             print(f"{repo}: {current_changes}")
 
         self._lines_changed = (additions, deletions)
